@@ -7,8 +7,20 @@ export enum ViewDefinitionV2CategoryContentItemTypes {
     TEXT = 'TEXT',
     SCHEMA = 'SCHEMA',
     SCHEMA_INFO = 'SCHEMA_INFO',
+    IS24_STATISTICS = 'IS24_STATISTICS'
 }
+
+export enum StatisticsType {
+    EXPOSE_VIEWS = 'EXPOSE_VIEWS'
+}
+
 export type ViewDefinitionV2CategoryContentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;
+
+export interface ViewDefinitionV2CategoryIs24StatisticsItem {
+    type: ViewDefinitionV2CategoryContentItemTypes.IS24_STATISTICS,
+    icon?: string;
+    statisticsType: StatisticsType;
+}
 
 export interface ViewDefinitionV2CategoryMediaItem {
     type: ViewDefinitionV2CategoryContentItemTypes.MULTIMEDIA;
@@ -43,7 +55,8 @@ export type ViewDefinitionV2CategoryContentItem =
     | ViewDefinitionV2CategoryTextItem
     | ViewDefinitionV2CategoryMediaItem
     | ViewDefinitionV2CategoryEntityItem
-    | ViewDefinitionV2CategoryLinkedEntityItem;
+    | ViewDefinitionV2CategoryLinkedEntityItem
+    | ViewDefinitionV2CategoryIs24StatisticsItem;
 
 export interface ViewDefinitionV2Category {
     name: string;
@@ -76,4 +89,5 @@ export interface ViewDefinitionV2 {
     defaultOrder?: string;
     filterConfiguration?: ViewDefinitionV2FilterConfiguration;
     schema: string;
+    hints?: Captions[];
 }

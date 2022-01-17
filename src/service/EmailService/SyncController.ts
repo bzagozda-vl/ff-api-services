@@ -34,6 +34,6 @@ export class SyncController extends APIClient {
      * @param draftId draft id to connect
      */
     async connectEmailWithDraft(entityId: string, draftId: string) {
-        return await this.invokeApiWithErrorHandling(`email/${entityId}/draft/${draftId}`, 'POST');
+        return await this.invokeApiWithErrorHandling(`/email/${entityId}/draft/${draftId}`, 'POST');
     }
 }

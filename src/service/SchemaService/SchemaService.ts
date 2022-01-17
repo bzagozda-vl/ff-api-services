@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { APIClient, APIMapping } from '../http';
+import { APIClient, APIMapping } from '../../http';
 
 export class SchemaService extends APIClient {
     constructor() {

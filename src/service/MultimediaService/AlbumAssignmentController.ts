@@ -48,7 +48,13 @@ export class AlbumAssignmentController extends APIClient {
      * @param albumName
      * @param assignments
      */
-    async updateAssignments(schemaName: string, entityId: string, albumName: string, assignments: { [key: string]: MultimediaAssignment[] }) {
+    async updateAssignments(
+        schemaName: string,
+        entityId: string,
+        albumName: string,
+        assignments: { [key: string]: MultimediaAssignment[] },
+        short: boolean = true
+    ) {
         return await this.invokeApiWithErrorHandling<MultimediaAssignments>(
             `/assigned/schemas/${schemaName}/entities/${entityId}`,
             'PUT',
@@ -58,7 +64,7 @@ export class AlbumAssignmentController extends APIClient {
             {
                 queryParams: {
                     albumName: albumName,
-                    short: true,
+                    short,
                 },
             }
         );

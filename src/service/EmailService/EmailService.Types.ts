@@ -66,4 +66,14 @@ export namespace EmailServiceTypes {
         USER = 'USER',
         EXTERNAL = 'EXTERNAL',
     }
+
+    export interface ResyncResponse {
+        id: number,
+        companyId: string;
+        accountId?: string;
+        finished: boolean;
+        success: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }
 }

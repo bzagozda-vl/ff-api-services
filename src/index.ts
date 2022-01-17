@@ -17,7 +17,6 @@ export { default as NylasContactSyncService } from './service/NylasContactSyncSe
 export { default as Office365AuthenticationService } from './service/Office365AuthenticationService';
 export { default as OpenimmoPublishService } from './service/OpenimmoPublishService';
 export { default as PresetService } from './service/PresetService';
-export { default as SchemaService } from './service/SchemaService';
 export { default as SchemaServiceV2 } from './service/SchemaServiceV2';
 export { default as SearchService } from './service/SearchService';
 export { default as TaggingService } from './service/TaggingService';
@@ -31,11 +30,14 @@ export { default as OpenimmoImporterService } from './service/OpenimmoImporterSe
 export { default as ImporterFlowFactTransferService } from './service/ImporterFlowFactTransferService';
 
 export { default as EntityService, TrashedEntity, TrashedEntitiesResponse, TrashedEntitySchemaName, TrashedEntityIds } from './service/EntityService';
+export * from './service/SchemaService';
 export * from './service/GDPRService';
 export * from './service/IS24LeadService';
 export * from './service/IS24ImportService';
+export * from './service/IS24EstateStatisticsService';
 export * from './service/OpenimmoFtpAccessService';
 export * from './service/SprengnetterService';
+export * from './service/SprengnetterGatewayService';
 export * from './service/ExcelExporterService';
 export * from './service/FlywheelService';
 export * from './service/WorkflowService';

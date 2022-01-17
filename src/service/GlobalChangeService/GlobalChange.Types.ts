@@ -48,7 +48,6 @@ export type GlobalChangeEntity = {
 export interface CreateGlobalChangeRequestBody {
     searchDefinition: FieldValues<Flowdsl>;
     transformations: FieldValues<Transformations>;
-    caption: FieldValues<string>;
     affectedEntitiesSchema: FieldValues<string>;
     [key: string]: FieldValues<any>;
 }

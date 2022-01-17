@@ -8,6 +8,7 @@ export class APIService {
     }
 }
 
+// deprecated - useable only for Lambdas created with the old scaffold. For new Lambdas just use APIService.
 export class LambdaAPIService extends APIService {
     constructor(serviceName: string, private readonly forceUrl: string | undefined = undefined) {
         super(serviceName);
@@ -81,6 +82,7 @@ const APIMapping = {
     interactiveExposeV2LambdaService: new LambdaAPIService('iex2-expose-lambda'),
     interactiveExposeV2S3Service: new S3APIService('iex2-expose'),
     is24EntitlementService: new APIService('is24-entitlement-service'),
+    is24EstateStatisticsLambdaService: new APIService('is24-estate-statistics-lambda'),
     is24ImportService: new APIService('is24-import-service'),
     is24LeadService: new APIService('is24-lead-service'),
     is24PublishService: new APIService('is24-publish-service'),
@@ -108,6 +110,7 @@ const APIMapping = {
     smsIngestionService: new APIService('sms-ingestion-service'),
     smsService: new APIService('sms-service'),
     softLinksEntityService: new APIService('softlinks-entity-service'),
+    spregnetterGatewayService: new APIService('sprengnetter-gateway-service'),
     spregnetterService: new APIService('sprengnetter-service'),
     supportService: new APIService('support-service'),
     swissLeadService: new APIService('swiss-lead-service'),
