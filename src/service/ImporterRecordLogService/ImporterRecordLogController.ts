@@ -10,15 +10,10 @@ export class ImporterRecordLogController extends APIClient {
     }
 
     async fetchDirectoryContents(table: string) {
-        return this.invokeApiWithErrorHandling(
-            `/record-log/directory/entries`,
-            'GET',
-            {},
-            {
-                queryParams: {
-                    table,
-                },
-            }
-        );
+        return this.invokeApiWithErrorHandling(`/record-log/directory/entries`, 'GET', undefined, {
+            queryParams: {
+                table,
+            },
+        });
     }
 }
