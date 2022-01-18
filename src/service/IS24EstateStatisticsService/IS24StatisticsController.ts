@@ -13,18 +13,23 @@ export default class IS24StatisticsController extends APIClient {
      * @param type
      */
     async fetchStatistics(is24EstateId: string, portalId: string, type: StatisticsType) {
+        return await this.invokeApiWithErrorHandling<number>(this.getPath(type), 'GET', {}, {
+            queryParams: {
+                portalId,
+                scoutId: is24EstateId
+            }
+        });
+    }
+
+    private getPath(type: StatisticsType): string {
         switch (type) {
             case StatisticsType.EXPOSE_VIEWS:
-                return await this.invokeApiWithErrorHandling<number>('/exposeviews', 'GET', {}, {
-                    queryParams: {
-                        portalId,
-                        scoutId: is24EstateId
-                    }
-                });
+                return '/exposeviews';
+            case StatisticsType.CONTACT_REQUESTS:
+                return '/contactRequestsAmount';
             default:
                 throw new TypeError(`Unhandled statistics type: ${type}`);
         }
-
     }
 
 }

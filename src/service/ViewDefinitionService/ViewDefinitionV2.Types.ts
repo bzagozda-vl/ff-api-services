@@ -11,15 +11,17 @@ export enum ViewDefinitionV2CategoryContentItemTypes {
 }
 
 export enum StatisticsType {
-    EXPOSE_VIEWS = 'EXPOSE_VIEWS'
+    EXPOSE_VIEWS = 'EXPOSE_VIEWS',
+    CONTACT_REQUESTS = 'CONTACT_REQUESTS'
 }
 
 export type ViewDefinitionV2CategoryContentItemType = keyof typeof ViewDefinitionV2CategoryContentItemTypes;
 
 export interface ViewDefinitionV2CategoryIs24StatisticsItem {
     type: ViewDefinitionV2CategoryContentItemTypes.IS24_STATISTICS,
-    icon?: string;
     statisticsType: StatisticsType;
+    icon?: string;
+    linkTemplate?: string;
 }
 
 export interface ViewDefinitionV2CategoryMediaItem {
