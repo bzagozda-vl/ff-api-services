@@ -13,7 +13,7 @@ export class PhaseController extends APIClient {
     }
 
     /**
-     * TODO: Please comment this method
+     * Fetches all phases filtered by optional filters
      * @param filters
      */
     async fetchAll(filters?: FlywheelFilter | FlywheelFilter[]) {

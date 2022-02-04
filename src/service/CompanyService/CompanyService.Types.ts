@@ -79,6 +79,7 @@ export namespace CompanyServiceTypes {
         terms: S3File;
         timestamp: number;
         trial: boolean;
+        trialEnd: number;
         verified: boolean;
         language?: string;
     }

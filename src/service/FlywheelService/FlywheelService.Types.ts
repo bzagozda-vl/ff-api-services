@@ -78,9 +78,9 @@ export namespace FlywheelServiceTypes {
     }
 
     export interface SchemaIdFilter {
-        type: 'MATCH_SCHEMA_ID';
+        type: 'MATCH_SCHEMA';
         data: {
-            schemaId: string;
+            schema: string;
         };
     }
 

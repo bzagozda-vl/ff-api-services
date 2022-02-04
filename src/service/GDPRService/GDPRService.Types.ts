@@ -1,15 +1,14 @@
-import { Contact, Entity, EntityView } from '@flowfact/types';
+import { Entity, SchemaV2 } from '@flowfact/types';
 
 export namespace GDPRServiceTypes {
     export type ExportFileType = 'JSON' | 'CSV' | 'XML';
     export type DataChangeRequestApprovalStatus = 'APPROVED' | 'DENIED' | 'PENDING';
-    export type DataChangeRequestType = 'DELETE' | 'CHANGE' | 'PROCESS_LIMITATION';
     export type UserConsentStatus = 'DEFAULT' | 'BLOCKED' | 'CONSENT_PENDING' | 'CONSENT_GRANTED';
     export type ConsentSource = 'CONTACT' | 'MANUAL' | 'IMPLICIT';
 
     export interface DataChangeRequestStatus {
         dataChangeRequestApprovalStatus: DataChangeRequestApprovalStatus;
-        requestDateTime?: Date;
+        requestDateTime?: string | number;
         type: DataChangeRequestType;
     }
 
@@ -39,7 +38,8 @@ export namespace GDPRServiceTypes {
     }
 
     export interface Consents {
-        entries: EntityView[];
+        entities: Entity[];
+        schema: SchemaV2;
     }
 
     export interface CompanyTerms {
@@ -53,7 +53,8 @@ export namespace GDPRServiceTypes {
         id: string;
         userId: string;
         companyId: string;
-        contact: Contact;
+        contact: Entity;
+        schema: SchemaV2;
     }
 
     export interface ConsentByContact {
@@ -76,6 +77,12 @@ export namespace GDPRServiceTypes {
         GENERAL_CONTACT_CONSENT = 'GENERAL_CONTACT_CONSENT',
         ESTATE_CONTACT_CONSENT = 'ESTATE_CONTACT_CONSENT',
         NEWSLETTER = 'NEWSLETTER',
+    }
+
+    export enum DataChangeRequestType {
+        DELETE = 'DELETE',
+        CHANGE = 'CHANGE',
+        PROCESS_LIMITATION = 'PROCESS_LIMITATION',
     }
 
     export interface ConsentRequestBody {

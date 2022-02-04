@@ -72,7 +72,6 @@ export * from './service/FilterDefinitionService';
 export * from './service/UserService';
 export * from './service/SupportService';
 export * from './service/ActivityReportService';
-export * from './service/ImporterRecordLogService';
 export * from './service/CaasManagementService';
 export * from './service/GeoInformationService';
 export * from './service/EverSignService';
@@ -92,6 +91,7 @@ export * from './service/CalendarSyncService';
 export * from './service/FeatureToggleService';
 export * from './service/GlobalChangeService';
 export * from './service/SwissLeadService';
+export * from './service/FlowfactImporterService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';

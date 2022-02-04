@@ -15,6 +15,9 @@ export class GDPRPublicController extends APIClient {
             queryParams: {
                 token: token,
             },
+            headers: {
+                'x-ff-version': 2,
+            },
         });
     }
 
@@ -25,7 +28,7 @@ export class GDPRPublicController extends APIClient {
      * @param companyId
      */
     async fetchConsents(contactId: string, userId: string, companyId: string) {
-        return await this.invokeApiWithErrorHandling<GDPRServiceTypes.Consents>('/public/consents', 'GET', undefined, {
+        return await this.invokeApiWithErrorHandling<GDPRServiceTypes.Consents>('/public/consents/raw', 'GET', undefined, {
             queryParams: {
                 contactId: contactId,
                 userId: userId,
@@ -107,7 +110,7 @@ export class GDPRPublicController extends APIClient {
         contactId: string,
         userId: string,
         companyId: string,
-        type: GDPRServiceTypes.DataChangeRequestType = 'CHANGE',
+        type = GDPRServiceTypes.DataChangeRequestType.CHANGE,
         changes: object = {}
     ) {
         return await this.invokeApiWithErrorHandling<GDPRServiceTypes.DataChangeRequest>(

@@ -1,4 +1,7 @@
-import { SprengnetterGatewayController } from './SprengnetterGatewayController';
+import { ConsentController } from './ConsentController';
+import { LinkedCustomerAccountController } from './LinkedCustomerAccountController';
+import { LinkedCustomerAccountLoginController } from './LinkedCustomerAccountLoginController';
+import { UserConsentController } from './UserConsentController';
 
 export * from './SprengnetterGatewayService.Types';
 
@@ -7,10 +10,16 @@ export * from './SprengnetterGatewayService.Types';
  * The Sprengnetter has moved to a platform called Shopware. This new service acts as a gateway to the Shopware platform API.
  */
 export class SprengnetterGatewayService {
-    public readonly sprengnetterGateway: SprengnetterGatewayController;
+    public readonly consentController: ConsentController;
+    public readonly userConsentController: UserConsentController;
+    public readonly linkedCustomerAccountController: LinkedCustomerAccountController;
+    public readonly linkedCustomerAccountLoginController: LinkedCustomerAccountLoginController;
 
     constructor() {
-        this.sprengnetterGateway = new SprengnetterGatewayController();
+        this.consentController = new ConsentController();
+        this.userConsentController = new UserConsentController();
+        this.linkedCustomerAccountController = new LinkedCustomerAccountController();
+        this.linkedCustomerAccountLoginController = new LinkedCustomerAccountLoginController();
     }
 }
 

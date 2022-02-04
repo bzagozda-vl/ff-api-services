@@ -1,6 +1,6 @@
 import { APIClient, APIMapping } from '../../http';
 
-export class ImporterRecordLogController extends APIClient {
+export class RecordLogController extends APIClient {
     constructor() {
         super(APIMapping.flowfactImporterLambda);
     }

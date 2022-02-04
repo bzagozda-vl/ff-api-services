@@ -1,10 +1,11 @@
 import { APIClient, APIMapping } from '../../http';
-import { ImportPreparationServiceTypes } from './ImportPreparationService.Types';
-import ImporterStatus = ImportPreparationServiceTypes.ImporterStatus;
+import { FlowfactImporterServiceTypes } from '.';
+
+import ImporterStatus = FlowfactImporterServiceTypes.ImporterStatus;
 
 export class StatusController extends APIClient {
     constructor() {
-        super(APIMapping.importPreparationLambda);
+        super(APIMapping.flowfactImporterLambda);
     }
 
     /**

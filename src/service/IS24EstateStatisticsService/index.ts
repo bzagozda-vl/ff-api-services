@@ -1,5 +1,7 @@
 import IS24StatisticsController from './IS24StatisticsController';
 
+export * from './IS24StatisticsService.Types';
+
 export class IS24StatisticsService {
     public readonly statistics: IS24StatisticsController;
 
