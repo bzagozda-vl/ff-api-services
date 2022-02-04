@@ -12,6 +12,6 @@ export class StatusController extends APIClient {
      * Gets the status of the currently running import.
      */
     async getImportStatus() {
-        return await this.invokeApiWithErrorHandling<ImporterStatus>('/status', 'GET');
+        return await this.invokeApiWithErrorHandling<ImporterStatus>('/import-status', 'GET');
     }
 }
