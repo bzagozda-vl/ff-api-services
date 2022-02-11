@@ -7,7 +7,7 @@ import ContactRequestResponse = IS24EstateStatisticsTypes.ContactRequestResponse
 
 export default class IS24StatisticsController extends APIClient {
     private readonly MIN_ESTATE_IDS = 1;
-    private readonly MAX_ESTATE_IDS = 10;
+    private readonly MAX_ESTATE_IDS = 100;
 
     private readonly arrayValidator = new ArrayValidator(this.MIN_ESTATE_IDS, this.MAX_ESTATE_IDS);
 
@@ -32,12 +32,14 @@ export default class IS24StatisticsController extends APIClient {
     /**
      * Fetches IS24 contact request amount value for given estate
      * @param is24EstateIds
+     * @param numberOfDays
      */
-    async fetchContactRequestsAmount(is24EstateIds: string[]) {
+    async fetchContactRequestsAmount(is24EstateIds: string[], numberOfDays?: number) {
         return this.arrayValidator.validateArray(is24EstateIds)
             || await this.invokeApiWithErrorHandling<ContactRequestResponse>('/contactrequests', 'GET', {}, {
                 queryParams: {
-                    scoutIds: is24EstateIds.join(',')
+                    scoutIds: is24EstateIds.join(','),
+                    numberOfDays
                 }
             });
     }

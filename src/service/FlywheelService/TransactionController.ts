@@ -156,10 +156,16 @@ export class TransactionController extends APIClient {
 
     /**
      * Evaluates if the given entity fulfills entry conditions in the given phase
+     * Note: in order for an entity to be able to be moved to a given phase, it has to fulfill all entry conditions
+     * of the given phase AND all entry conditions of the previous phases.
      *
      * @returns true if the entity fulfills entry conditions in the given phase, false otherwise
      */
-    async evaluateEntryConditions(phaseName: string, entityId: string) {
-        return this.invokeApiWithErrorHandling<boolean>(`/transactions/phases/${phaseName}/entities/${entityId}/evaluate`, 'POST');
+    async evaluateEntryConditions(phaseName: string, parentPhaseName: string, entityId: string) {
+        return this.invokeApiWithErrorHandling<boolean>(`/transactions/phases/evaluate`, 'POST', {
+            phaseName,
+            parentPhaseName,
+            entityId,
+        });
     }
 }

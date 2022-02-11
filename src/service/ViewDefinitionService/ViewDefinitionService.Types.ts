@@ -28,7 +28,15 @@ export interface ViewDefinition extends ShortViewDefinition {
     categories: ViewDefinitionCategory[];
 }
 
-export type ViewType = 'DEFAULT' | 'LIST' | 'CARD' | 'CALENDAR' | 'MAP' | 'ENTITY_RELATION' | 'QUICK_CREATE';
+export enum ViewType {
+    DEFAULT = 'DEFAULT',
+    LIST = 'LIST',
+    CARD = 'CARD',
+    CALENDAR = 'CALENDAR',
+    MAP = 'MAP',
+    ENTITY_RELATION = 'ENTITY_RELATION',
+    QUICK_CREATE = 'QUICK_CREATE'
+}
 
 export enum ViewActionTypes {
     ACCESS_RIGHTS = 'ACCESS_RIGHTS',
