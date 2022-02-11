@@ -75,7 +75,7 @@ export class CsvDataToEntityImporterController extends APIClient {
      * @param updateMappingData updated mapping data
      */
     async updateFieldMapping(fileId: string, updateMappingData: Record<string, CsvDataToEntityImporter.ImportField>): Promise<ApiResponse> {
-        return await this.invokeApiWithErrorHandling(`/field_mapping`, 'PATCH', updateMappingData, {
+        return await this.invokeApiWithErrorHandling(`/mapping/field`, 'PATCH', updateMappingData, {
             queryParams: {
                 fileId: fileId,
             },
@@ -88,7 +88,7 @@ export class CsvDataToEntityImporterController extends APIClient {
      * @param fieldName name of mapping field to be removed
      */
     async deleteFieldMapping(fileId: string, fieldName: string): Promise<ApiResponse> {
-        return await this.invokeApiWithErrorHandling(`/field_mapping`, 'DELETE', undefined, {
+        return await this.invokeApiWithErrorHandling(`/mapping/field`, 'DELETE', undefined, {
             queryParams: {
                 fileId: fileId,
                 fieldName: fieldName,
