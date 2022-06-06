@@ -92,6 +92,7 @@ export * from './service/FeatureToggleService';
 export * from './service/GlobalChangeService';
 export * from './service/SwissLeadService';
 export * from './service/FlowfactImporterService';
+export * from './service/ImporterCustomMappingService';
 
 export * from './http';
 export * from './util/EnvironmentManagement';
